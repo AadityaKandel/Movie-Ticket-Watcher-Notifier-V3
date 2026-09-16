@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Marquee — release watcher",
+  "version": "3.0.0",
+  "description": "Watches one ticketing page in your own browser and tells you the moment a title opens for booking.",
+  "minimum_chrome_version": "120",
+
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications",
+    "scripting",
+    "tabs",
+    "offscreen"
+  ],
+
+  "optional_host_permissions": ["*://*/*"],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "action": {
+    "default_title": "Marquee",
+    "default_popup": "panel.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+
+  "options_ui": {
+    "page": "panel.html",
+    "open_in_tab": true
+  },
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

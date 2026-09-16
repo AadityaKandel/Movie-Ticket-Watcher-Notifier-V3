@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marquee</title>
+<link rel="stylesheet" href="panel.css">
+</head>
+<body>
+<div class="shell" id="shell">
+
+  <!-- ── rail: status + log ───────────────────────────────────────────── -->
+  <aside class="rail">
+    <header class="brand">
+      <span class="lamp" id="lamp" aria-hidden="true"></span>
+      <h1>Marquee</h1>
+      <button class="ghost expand" id="expand" type="button" title="Open the full view">Full view</button>
+    </header>
+
+    <section class="dial" id="dial" aria-live="polite">
+      <svg class="ring" viewBox="0 0 64 64" aria-hidden="true">
+        <circle class="ring-track" cx="32" cy="32" r="28"></circle>
+        <circle class="ring-arc" id="arc" cx="32" cy="32" r="28"></circle>
+      </svg>
+      <div class="readout">
+        <div class="clock" id="clock">—</div>
+        <div class="state" id="state">Not watching</div>
+      </div>
+    </section>
+
+    <p class="watching" id="watching">Nothing set yet.</p>
+    <p class="detail" id="detail" hidden></p>
+
+    <div class="actions">
+      <button class="primary" id="toggle" type="button">Start watching</button>
+      <button class="ghost" id="checkNow" type="button" disabled>Look now</button>
+    </div>
+
+    <section class="log-wrap">
+      <div class="log-head">
+        <h2>What's happened</h2>
+        <button class="ghost tiny" id="clearLog" type="button">Clear</button>
+      </div>
+      <ol class="log" id="log"></ol>
+    </section>
+  </aside>
+
+  <!-- ── settings ─────────────────────────────────────────────────────── -->
+  <main class="settings">
+
+    <section class="group">
+      <h2>What to watch</h2>
+
+      <label class="field">
+        <span class="lab">Page</span>
+        <div class="row">
+          <select id="tabPick"></select>
+          <button class="ghost" id="useTab" type="button">Use this page</button>
+        </div>
+        <span class="hint" id="urlHint">Open the cinema's listings page in a tab, then pick it here.</span>
+      </label>
+
+      <label class="field">
+        <span class="lab">Title</span>
+        <input type="text" id="title" placeholder="Exactly as the site spells it" autocomplete="off">
+        <span class="hint">Accents and punctuation are ignored, so "Amélie" matches "Amelie".</span>
+      </label>
+
+      <fieldset class="field">
+        <span class="lab">Where on the page</span>
+        <div class="seg" id="scope" role="radiogroup">
+          <button type="button" role="radio" data-v="page">Anywhere</button>
+          <button type="button" role="radio" data-v="zone">Now showing</button>
+          <button type="button" role="radio" data-v="selector">A part I pick</button>
+        </div>
+        <span class="hint" id="scopeHint"></span>
+      </fieldset>
+
+      <label class="field" id="selectorField" hidden>
+        <span class="lab">CSS selector</span>
+        <input type="text" id="selector" placeholder=".showtimes, #now-playing" autocomplete="off">
+        <span class="hint">Right-click the listings block on the site, choose Inspect, then Copy selector.</span>
+      </label>
+
+      <label class="field">
+        <span class="lab">Must also say</span>
+        <input type="text" id="alsoRequires" placeholder="book, showtimes" autocomplete="off">
+        <span class="hint">Optional. Stops a "coming soon" mention from setting the alarm off.</span>
+      </label>
+    </section>
+
+    <section class="group">
+      <h2>How often</h2>
+
+      <label class="field">
+        <span class="lab">Roughly every</span>
+        <div class="row">
+          <input type="range" id="interval" min="60" max="900" step="15">
+          <output id="intervalOut"></output>
+        </div>
+        <span class="hint">Each wait is nudged up or down at random so the rhythm isn't mechanical. One minute is the floor.</span>
+      </label>
+
+      <fieldset class="field">
+        <span class="lab">When it shows up</span>
+        <div class="seg" id="onFound" role="radiogroup">
+          <button type="button" role="radio" data-v="stop">Tell me and stop</button>
+          <button type="button" role="radio" data-v="remind">Keep reminding</button>
+          <button type="button" role="radio" data-v="watch">Keep checking</button>
+        </div>
+        <span class="hint" id="foundHint"></span>
+      </fieldset>
+
+      <label class="field">
+        <span class="lab">Give up after</span>
+        <select id="maxHours">
+          <option value="2">2 hours</option>
+          <option value="6">6 hours</option>
+          <option value="12">12 hours</option>
+          <option value="24">A full day</option>
+          <option value="0">Never</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="group">
+      <h2>How you hear about it</h2>
+
+      <label class="check"><input type="checkbox" id="notify"> Desktop notification</label>
+      <label class="check"><input type="checkbox" id="sound"> Play a chime</label>
+
+      <label class="field">
+        <span class="lab">Push to your phone</span>
+        <div class="row">
+          <input type="text" id="ntfyTopic" placeholder="ntfy.sh topic" autocomplete="off">
+          <button class="ghost" id="testAlert" type="button">Test</button>
+        </div>
+        <span class="hint">Install the free ntfy app, subscribe to a topic name only you know, and put it here.</span>
+      </label>
+    </section>
+
+    <section class="group note">
+      <h2>Ground rules</h2>
+      <p>Marquee never loads the page faster than once a minute, backs off on its own if the site pushes back, and stops entirely after four refusals. If that happens, use the site's own alert button instead — it costs them nothing and it's faster than any watcher.</p>
+    </section>
+  </main>
+</div>
+
+<script src="panel.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <circle cx="64" cy="64" r="59" fill="#17132A"/>
+  <!-- clapper -->
+  <path d="M31 45h66l5 8H26z" fill="#F3F1F8"/>
+  <path d="M36 37h58l-4 8H32z" fill="#F3F1F8"/>
+  <path d="M45 37l10 0-4 8H41z" fill="#17132A"/>
+  <path d="M66 37l10 0-4 8H62z" fill="#17132A"/>
+  <path d="M87 37l7 0-4 8H83z" fill="#17132A"/>
+  <rect x="31" y="51" width="66" height="35" rx="5" fill="#F3F1F8"/>
+  <path d="M59 59l22 15-22 15z" fill="#17132A"/>
+  <!-- location pin -->
+  <path d="M64 94c-8.8-9.7-13-15.9-13-21.8A13 13 0 1 1 77 72.2C77 78.1 72.8 84.3 64 94z" fill="#F2B33D"/>
+  <circle cx="64" cy="71.5" r="4.5" fill="#17132A"/>
+</svg>
