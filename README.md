@@ -128,7 +128,3 @@ background.js    scheduling, the in-page detector, backoff, alerts
 panel.html/css/js  the interface, used as both popup and full page
 offscreen.html/js  plays the chime when no window is focused
 ```
-
-`background.js` is the file worth reading. The detector is the function
-`detectInPage`, injected into the watched tab and returning a plain
-found / not-found / pushed-back result.
