@@ -58,7 +58,7 @@ theatre where the site has no alert of its own.
 1. Open `chrome://extensions` (Edge: `edge://extensions`, Brave:
    `brave://extensions`).
 2. Turn on **Developer mode**.
-3. Click **Load unpacked** and select this folder.
+3. Click **Load unpacked** and select **[this folder](https://github.com/AadityaKandel/Movie-Ticket-Watcher-Notifier-V3/tree/main/Movie%20Watcher)**.
 
 Chrome 120 or newer. Works in Chrome, Edge, Brave, Opera and any other
 Chromium browser.
