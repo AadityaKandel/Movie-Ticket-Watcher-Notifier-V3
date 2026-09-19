@@ -14,7 +14,7 @@ waiting on shows up.
 
 It removes the automation layer rather than disguising it.
 
-| | v2 | Marquee |
+| | [v2](https://github.com/AadityaKandel/Movie-Ticket-Watcher-Notifier) | Marquee |
 |---|---|---|
 | Browser | separate Chromium, debug port open | your normal browser, normal launch |
 | `navigator.webdriver` | `true` | `false` — genuinely not automated |
